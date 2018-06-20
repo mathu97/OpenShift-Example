@@ -1,2 +1,2 @@
 # OpenShift-Example
-This example depoys a node.js application which uses a database, to OpenShift.
+This example deploys a node.js application which uses a database, to OpenShift.
