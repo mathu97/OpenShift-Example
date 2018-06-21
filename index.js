@@ -19,10 +19,27 @@ con.connect(function(err){
 app.post('/createtable', function(req, res) {
     var sql = "CREATE TABLE customers (name VARCHAR(255), address VARCHAR(255))";
     con.query(sql, function (err, result) {
-        if (err) throw err;
+        if (err) { 
+            res.json({'Table Created': false})
+            throw err;
+        }
         console.log("Table created");
+        res.json({'Table Created': true})
       });
+
 });
+
+app.post('/deleteTable', function(req, res){
+    var sql = "DROP TABLE customers";
+    con.query(sql, function (err, result) {
+        if (err) {
+            res.json({'Table Dropped' : false})
+            throw err
+        };
+        console.log("Table deleted");
+        res.json({'Table Dropped': true})
+    });
+})
 
 app.listen(3000, () => {
     console.log("Server Listening On Port 3000")
