@@ -1,4 +1,4 @@
-var expresss = require('express');
+var express = require('express');
 var mysql = require('mysql');
 
 var app = express();
