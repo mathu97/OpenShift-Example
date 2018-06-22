@@ -4,7 +4,7 @@ var mysql = require('mysql');
 var app = express();
 
 var con = mysql.createConnection({
-    host: "127.0.0.1",
+    host: "172.30.160.93",
     port: "3306",
     user: "user1",
     password: "mypa55",
@@ -39,7 +39,7 @@ app.post('/deleteTable', function(req, res){
         console.log("Table deleted");
         res.json({'Table Dropped': true})
     });
-})
+});
 
 app.listen(3000, () => {
     console.log("Server Listening On Port 3000")
