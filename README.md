@@ -18,6 +18,6 @@ This example deploys both a mysql database, and a node.js application, which bot
   `docker build -t node-app .`
 2. Check if image is built by running: `docker images`
 3. Deploy the locally built node-app image as an application to OpenShift:  
-  `docker new-app --name=my-node-app --docker-image=node-app`
+  `oc new-app --name=my-node-app --docker-image=node-app`
 4. Ensure that the pod is created successfully: `kubectl get pods --watch` (CTRL + C, to exit)  
 5. Confirm deployment by running `oc status`, and go to the server address shown in the result of this command to view everything deployed on the OpenShift web interface.
