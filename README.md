@@ -1,5 +1,5 @@
 # OpenShift-Example  
-This example deploys both a mysql database, and a node.js application, which both communicate with each other in OpenShift.  
+This example deploys a node.js application which uses a mysql database, on OpenShift.  
 ## Must Have:  
 * Installed the compatible version of [Docker](https://www.docker.com/) for OpenShift (`dnf instal docker-engine` for fedora)  
 * Installed [OpenShift CLI](https://github.com/openshift/origin)  
