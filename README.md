@@ -1,5 +1,9 @@
 # OpenShift-Example  
 This example deploys both a mysql database, and a node.js application, which both communicate with each other in OpenShift.  
+## Must Have:  
+* Installed the compatible version of [Docker](https://www.docker.com/) for OpenShift (`dnf instal docker-engine` for fedora)  
+* Installed [OpenShift CLI](https://github.com/openshift/origin)  
+* Installed [Minishift](https://github.com/minishift/minishift/releases) and Running Docker (`systemctl start docker`)  
 ## Start a simple OpenShift cluster:  
 `minishift start` (I had to eplicitly do `minishift start --vm-driver=kvm` to use kvm)
 ## Deploy mysql database:
