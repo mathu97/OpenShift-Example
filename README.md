@@ -24,4 +24,8 @@ This example shows how a node.js application which uses a mysql database, is dep
 3. Deploy the node-app image as an application to OpenShift:  
   `oc new-app --name=my-node-app --docker-image=<user name>/node-app:<tag>`
 4. Ensure that the pod is created successfully: `kubectl get pods --watch` (CTRL + C, to exit)  
-5. Confirm deployment by running `oc status`, and go to the server address shown in the result of this command to view everything that is deployed, on the OpenShift web interface.
+5. Confirm deployment by running `oc status`, and go to the server address shown in the result of this command to view everything that is deployed, on the OpenShift web interface.  
+
+## Verify  
+* You can verify if the two pods are set up properly by going to the OpenShift web interface, and viewing the logs of the "my-node-app" application.
+* You should see "Connected!" in the logs.
