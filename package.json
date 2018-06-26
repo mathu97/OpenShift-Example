@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/mathu97/OpenShift-Example#readme",
   "dependencies": {
+    "cors": "^2.8.4",
     "express": "^4.16.3",
     "mysql": "^2.15.0",
     "nodemon": "^1.17.5"

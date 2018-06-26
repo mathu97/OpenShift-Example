@@ -1,7 +1,11 @@
 var express = require('express');
 var mysql = require('mysql');
+var cors = require('cors');
 
 var app = express();
+var viewDest = String(__dirname)
+
+app.use(cors())
 
 var con = mysql.createConnection({
     host: "172.30.142.136",
@@ -11,9 +15,6 @@ var con = mysql.createConnection({
     database: "testdb"
 });
 
-app.get('/', function(req, res){
-    res.send('hello')
-})
 app.get('/connect', function(req, res){
 
     con = mysql.createConnection({
