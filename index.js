@@ -4,16 +4,31 @@ var mysql = require('mysql');
 var app = express();
 
 var con = mysql.createConnection({
-    host: "172.30.160.93",
+    host: "172.30.142.136",
     port: "3306",
     user: "user1",
     password: "mypa55",
     database: "testdb"
 });
 
-con.connect(function(err){
-    if (err) throw err;
-    console.log("Connected!");
+app.get('/', function(req, res){
+    res.send('hello')
+})
+app.get('/connect', function(req, res){
+
+    con = mysql.createConnection({
+        host: req.query.databaseIP,
+        port: "3003",
+        user: "user1",
+        password: "mypa55",
+        database: "testdb"
+    });
+    console.log({hello: req.query.databaseIP});
+    con.connect(function(err){
+        if (err) throw err;
+        console.log("Connected!");
+        res.json({'Connected': true})
+    });
 });
 
 app.post('/createtable', function(req, res) {
@@ -27,6 +42,14 @@ app.post('/createtable', function(req, res) {
         res.json({'Table Created': true})
       });
 
+});
+
+app.post('/addRow', function(req, res) {
+    var sql = "INSERT INTO customers (name, address) VALUES ('Company Inc', 'Highway 37')";
+    con.query(sql, function (err, result) {
+        if (err) throw err;
+        console.log("1 record inserted");
+      });
 });
 
 app.post('/deleteTable', function(req, res){
