@@ -16,7 +16,6 @@ var con = mysql.createConnection({
 });
 
 app.get('/connect', function(req, res){
-
     con = mysql.createConnection({
         host: req.query.databaseIP,
         port: req.query.databasePort,
@@ -42,16 +41,22 @@ app.post('/createtable', function(req, res) {
             throw err;
         }
         console.log("Table created");
-        res.json({'tableCreated': true})
+        res.json({'tableCreated': true,
+                  'name' : 'customers'
+                });
       });
 
 });
 
-app.post('/addRow', function(req, res) {
-    var sql = "INSERT INTO customers (name, address) VALUES ('Company Inc', 'Highway 37')";
+app.get('/addRow', function(req, res) {
+    console.log(res)
+    console.log("name: " + req.query.cust_name)
+    console.log("address: " + req.query.cust_address)
+    var sql = "INSERT INTO customers (name, address) VALUES ( '" + req.query.cust_name + "', '" + req.query.cust_address + "')";
     con.query(sql, function (err, result) {
         if (err) throw err;
         console.log("1 record inserted");
+        res.json({'rowAdded': true})
       });
 });
 
@@ -59,11 +64,12 @@ app.post('/deleteTable', function(req, res){
     var sql = "DROP TABLE customers";
     con.query(sql, function (err, result) {
         if (err) {
-            res.json({'Table Dropped' : false})
+            res.send({'tableDeleted' : false})
             throw err
         };
-        console.log("Table deleted");
-        res.json({'Table Dropped': true})
+        res.json({'tableDeleted' : true,
+                  'name': 'customers'
+                });
     });
 });
 
