@@ -19,7 +19,7 @@ app.get('/connect', function(req, res){
 
     con = mysql.createConnection({
         host: req.query.databaseIP,
-        port: "3003",
+        port: req.query.databasePort,
         user: "user1",
         password: "mypa55",
         database: "testdb"
@@ -38,11 +38,11 @@ app.post('/createtable', function(req, res) {
     var sql = "CREATE TABLE customers (name VARCHAR(255), address VARCHAR(255))";
     con.query(sql, function (err, result) {
         if (err) { 
-            res.json({'Table Created': false})
+            res.send({'tableCreated': false})
             throw err;
         }
         console.log("Table created");
-        res.json({'Table Created': true})
+        res.json({'tableCreated': true})
       });
 
 });
