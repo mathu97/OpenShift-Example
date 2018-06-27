@@ -4,13 +4,16 @@
 <head>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script type="text/javascript" src="frontend.js"></script>
+  <link rel="stylesheet" href="main.css">
   <title>Front-End</title>
    
 </head>
 
 <body>
-  <h1>OpenShift Example</h1>
-    <form>
+  
+    <form id="connectionForm">
+      <h1>OpenShift Example</h1>
+      
       Database IP:<br>
       <input type="text" id="dbIP"><br>
       Node Server IP:<br>
@@ -18,8 +21,10 @@
       <button type="button" id="connectButton">CONNECT</button>
     </form>
 
-    <h1>Database</h1>
-    <form>
+    
+    <form id= "databaseForm">
+        <h1>Database</h1>
+
         Create Table:
         <button type=button id="createTable">Create Table</button> <br>
 

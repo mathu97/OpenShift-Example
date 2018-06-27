@@ -26,8 +26,10 @@ app.get('/connect', function(req, res){
     });
     console.log({hello: req.query.databaseIP});
     con.connect(function(err){
-        if (err) throw err;
-        console.log("Connected!");
+        if (err){
+            res.send({'Connected': false})
+            throw err;
+        }
         res.json({'Connected': true})
     });
 });

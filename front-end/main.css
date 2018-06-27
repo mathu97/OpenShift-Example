@@ -1,0 +1,14 @@
+#connectionForm {
+    padding-top:10px;
+    padding-left: 30px;
+}
+
+#databaseForm {
+    display: none;
+    padding-top: 10px;
+    padding-left: 30px;
+}
+
+input {
+    margin-bottom: 10px;
+}
