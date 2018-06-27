@@ -67,6 +67,7 @@ app.post('/deleteTable', function(req, res){
             res.send({'tableDeleted' : false})
             throw err
         };
+        console.log("Table Deleted")
         res.json({'tableDeleted' : true,
                   'name': 'customers'
                 });
