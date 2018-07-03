@@ -1,4 +1,4 @@
-# Example: A Three-Tier app on a Single Node in OpenShift
+# Example: A Three-Tier application on a Single Node in OpenShift
 This example shows how a three tier application (front-end, server, and database) is deployed on OpenShift.  
 ## Must Have:  
 * Installed the compatible version of [Docker](https://www.docker.com/) for OpenShift (`dnf install docker-engine` on fedora)  
