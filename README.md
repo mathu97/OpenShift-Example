@@ -1,12 +1,15 @@
 # OpenShift-Example  
 This example shows how a node.js application which uses a mysql database, is deployed on OpenShift.  
 ## Must Have:  
-* Installed the compatible version of [Docker](https://www.docker.com/) for OpenShift (`dnf instal docker-engine` on fedora)  
+* Installed the compatible version of [Docker](https://www.docker.com/) for OpenShift (`dnf install docker-engine` on fedora)  
 * Installed [OpenShift CLI](https://github.com/openshift/origin)  
 * Running Docker (`systemctl start docker`) 
 
 ## Start a simple OpenShift cluster:  
-`oc cluster up`
+`oc cluster up`  
+## Create a project:  
+1. oc new-project three-tier-app  
+2. oc project three-tier-app  
 ## Deploy mysql database:
 1. `oc new-app --name=mysql5 --docker-image=mysql:5.7 \`  
         `-e MYSQL_USER=user1 -e MYSQL_PASSWORD=mypa55 -e MYSQL_DATABASE=testdb \`  
