@@ -8,16 +8,15 @@ This example shows how a node.js application which uses a mysql database, is dep
 ## Start a simple OpenShift cluster:  
 `oc cluster up`  
 ## Create a project:  
-1. oc new-project three-tier-app  
-2. oc project three-tier-app  
+1. `oc new-project three-tier-app`  
+2. `oc project three-tier-app`  
 ## Deploy mysql database:
 1. `oc new-app --name=mysql5 --docker-image=mysql:5.7 \`  
         `-e MYSQL_USER=user1 -e MYSQL_PASSWORD=mypa55 -e MYSQL_DATABASE=testdb \`  
         `-e MYSQL_ROOT_PASSWORD=r00tpa55`  
         
 2. Ensure that the database is deployed properly: Run `oc status`  
-3. Expose the database: `oc expose service mysql5`   
-4. Run `oc get services`, change the host and pod fields found in [index.js](https://github.com/mathu97/OpenShift-Example/blob/1dbdc76beef2d3638fbc55831d4c03be7474f9e0/index.js#L7-L8) to the cluster-ip and port found in the command results
+3. Run `oc get services`, change the host and pod fields found in [index.js](https://github.com/mathu97/OpenShift-Example/blob/1dbdc76beef2d3638fbc55831d4c03be7474f9e0/index.js#L7-L8) to the cluster-ip and port found in the command results
 ## Deploy the node.js application:  
 1. Build a docker image of the node applcation (It will use the [Dockerfile](https://github.com/mathu97/OpenShift-Example/blob/master/Dockerfile)):  
   `docker build -t node-app .`
