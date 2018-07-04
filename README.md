@@ -18,7 +18,7 @@ This example shows how a three tier application (front-end, server, and database
 2. Ensure that the database is deployed properly: Run `oc status`  
 ## Deploy the node.js server:
 1. Change directory to back-end: `cd back-end`  
-2. Build a docker image of the node server (It will use the [Dockerfile](https://github.com/mathu97/OpenShift-Example/blob/master/Dockerfile)):  
+2. Build a docker image of the node server (It will use the [Dockerfile](https://github.com/mathu97/OpenShift-Example/blob/master/back-end/Dockerfile)):  
   `docker build -t node-server .`
 3. Check if the image is built: `docker images` (should see an image called node-server)  
   * Login to Docker: `docker login -u <Docker Hub Username> -p <Password>`
